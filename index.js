@@ -62,9 +62,9 @@ function foo(){
 }*/
 
 fetch("./data.json")
-  .then((response) => {
-    return response.json();
-  })
-  .then((data) => {
+  .then((response) => response.json())
+  .then(createUserCards);
+
+  function createUserCards(data) {
     console.log(data);
-  });
+  }
