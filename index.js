@@ -1,4 +1,4 @@
-const user = {
+/*const user = {
   firstName: "John",
   lastName: "Smith",
   isMale: true,
@@ -21,7 +21,7 @@ const user = {
 const serializedObj = JSON.stringify(user);
 console.log(serializedObj);
 
-const restoredObj = JSON.parse(serializedObj);
+const restoredObj = JSON.parse(serializedObj);*/
 
 /*
 Создать объект. У объекта = (строка, число, undefined, null, []) и 2 метода и 2 геттера.
@@ -29,7 +29,7 @@ const restoredObj = JSON.parse(serializedObj);
 Десериализовать. JSON.parse
 */
 
-const json = {
+/*const json = {
   str:"string",
   num: 55,
   isAdult: undefined,
@@ -53,4 +53,18 @@ console.log(json);
 const serial = JSON.stringify(json);
 console.log(serial);
 const deSerial = JSON.parse(serial);
-console.log(deSerial);
+console.log(deSerial);*/
+
+/*let i = 0;
+function foo(){
+  i++;
+  setTimeout(foo, 0);
+}*/
+
+fetch("./data.json")
+  .then((response) => {
+    return response.json();
+  })
+  .then((data) => {
+    console.log(data);
+  });
