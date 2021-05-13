@@ -16,6 +16,19 @@ function checkCat(str) {
 }
 */
 
+/*
+fetch("./data.json")
+  .then((response) => response.json())
+  .then(createUserCards)
+  .catch((error) => {
+    console.log(error);
+  });
+function createUserCards(data) {
+  console.table(data);
+  console.log(1);
+}
+*/
+
 function loadImage(src) {
   //const img = new Image();
   const img = document.createElement("img");
@@ -38,3 +51,7 @@ loadImage("https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_creat
 .catch((error)=>{
   alert(error)
 })
+
+/*
+  User Card Render переписать на промисы
+*/
