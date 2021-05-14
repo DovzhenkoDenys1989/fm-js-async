@@ -1,32 +1,34 @@
 "use strict";
 
-const square1 = document.getElementById("square1");
-const square2 = document.getElementById("square2");
-const square3 = document.getElementById("square3");
+/**
+ * Задание
+ *
+ * Напишите обработчик на событие click для кнопки, который при одинарном клике на кнопку будет выводить alert('Single'), 
+ * а при двойном клике будет выводить alert('double').
+ * При этом событие одинарного клика срабатывать не должно.
+ */
 
-function clickHandler(e, msg){
-  console.log(e.currentTarget, e.target)
-  alert(msg);
-}
+ const btn = document.getElementById("testButton");
+ btn.addEventListener("click", createClickHandler());
 
-window.addEventListener('click', (e) => {
-  clickHandler(e, 'window');
-})
+ function createClickHandler() {
+  let timer = null;
+  let clicks = 0;
+  return (e) => {
+    clicks++;
+    if(clicks >= 2) {
+      clearTimeout(timer);
+      clicks = 0;
+      alert('double');
+      return;
+    }
 
-document.addEventListener('click', (e) => {
-  clickHandler(e, 'document');
-}, true)
+    timer = setTimeout(()=>{
+      if(clicks === 1){
+        alert('single');
+      }
+      clicks = 0;
+    }, 250)
 
-square1.addEventListener('click', (e) => {
-  clickHandler(e, '1');
-  e.stopPropagation();
-}, true)
-
-square2.addEventListener('click', (e) => {
-  clickHandler(e, '2');
-})
-
-square3.addEventListener('click', (e) => {
-  clickHandler(e, '3');
-})
-
+  }
+ }
